@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35919.96 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaC#", "ProvaC#\ProvaC#.csproj", "{F225CE3F-1515-4523-9E33-FE95A8722191}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livraria", "ProvaC#\Livraria.csproj", "{F225CE3F-1515-4523-9E33-FE95A8722191}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
