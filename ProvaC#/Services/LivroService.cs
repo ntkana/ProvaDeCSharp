@@ -32,5 +32,10 @@ namespace ProvaC_.Services
             livroDAO.Remover(id);
 
         }
+
+        public void BuscarLivroPorTitulo(string titulo)
+        {
+            livroDAO.BuscarLivroTitulo(titulo);
+        }
     }
 }

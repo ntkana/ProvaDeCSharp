@@ -44,6 +44,8 @@ do
         case 6: ListarLivros(objLivro); break;
         case 7: EditarLivro(objLivro); break;
         case 8: RemoverLivro(objLivro); break;
+        case 9: BuscarAutorNome(objAutor); break;
+        case 10: BuscarLivroTitulo(objLivro); break;
 
     }
 
@@ -132,4 +134,18 @@ void RemoverLivro(LivroService objLivro)
     Console.Write("Id do livro: ");
     int id = int.Parse(Console.ReadLine());
     objLivro.RemoverLivro(id);
+}
+
+void BuscarAutorNome(AutorService objAutor)
+{
+    Console.Write("Nome do autor: ");
+    string nome = Console.ReadLine();
+    objAutor.BuscarAutorPorNome(nome);
+}
+
+void BuscarLivroTitulo(LivroService objLivro)
+{
+    Console.Write("Título do livro: ");
+    string titulo = Console.ReadLine();
+    objLivro.BuscarLivroPorTitulo(titulo);
 }

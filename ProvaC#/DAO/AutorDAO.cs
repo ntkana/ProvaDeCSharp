@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using ProvaC_.Services;
 using Autor = ProvaC_.Models.Autor;
 
 namespace ProvaC_.DAO
@@ -75,7 +76,32 @@ namespace ProvaC_.DAO
                 cmd.ExecuteNonQuery();
             }
         }
+        public void BuscarAutorNome(string nome)
+        {
+            using (SqlConnection con = new SqlConnection(_connectionString))
+            {
+                string query = "SELECT * FROM Autor WHERE NomeAutor LIKE @NomeAutor";
+                SqlCommand cmd = new SqlCommand(query, con);
+                Console.WriteLine("Digite o nome do autor que deseja buscar:");
+                string Nome = Console.ReadLine();
+                cmd.Parameters.AddWithValue("@NomeAutor", "%" + Nome + "%");
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Autor autor = new Autor
+                    {
+                        Id = reader.GetInt32(0),
+                        Nome = reader.GetString(1),
+                        Nacionalidade = reader.GetString(2)
+                    };
+                    Console.WriteLine($"Id: {autor.Id}, Nome: {autor.Nome}, Nacionalidade: {autor.Nacionalidade}");
+                }
+            }
+        }
+
     }
 }
+
 
 // concluído, só falta corrigir esses errinhos

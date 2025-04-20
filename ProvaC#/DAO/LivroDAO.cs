@@ -85,5 +85,21 @@ namespace ProvaC_.DAO
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public void BuscarLivroTitulo(string titulo)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                string query = "SELECT * FROM Livro WHERE TituloLivro LIKE @TituloLivro";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@TituloLivro", "%" + titulo + "%");
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Console.WriteLine($"Id: {reader["IdLivro"]}, Título: {reader["TituloLivro"]}, Gênero: {reader["GêneroLivro"]}, Ano de Publicação: {reader["AnoPublicacaoLivro"]}, Id Autor: {reader["IdAutor"]}");
+                }
+            }
+        }
     }
 }

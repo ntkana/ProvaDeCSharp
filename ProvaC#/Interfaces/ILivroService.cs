@@ -8,6 +8,7 @@ namespace ProvaC_.Interfaces
         List<Livro> ListarLivros();
         void EditarLivro(Livro livro);
         void RemoverLivro(int id);
+        void BuscarLivroPorTitulo(string titulo);
     }
 }
 

@@ -30,7 +30,14 @@ namespace ProvaC_.Services
         {
             autorDAO.RemoverAutor(id);
         }
+
+        public void BuscarAutorPorNome(string nome)
+        {
+            autorDAO.BuscarAutorNome(nome);
+        }
     }
 }
+
+
 
 // concluído, só falta arrumar os errinhos

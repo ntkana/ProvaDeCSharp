@@ -9,6 +9,7 @@ namespace ProvaC_.Interfaces
         List<Autor> ListarAutores();
         void EditarAutor(Autor autor);
         void RemoverAutor(int id);
+        void BuscarAutorPorNome(string nome);
     }
 }
 
