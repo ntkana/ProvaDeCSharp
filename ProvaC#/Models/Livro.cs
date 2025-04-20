@@ -6,7 +6,7 @@
         public string Titulo { get; set; } = string.Empty;
         public string Genero { get; set; } = string.Empty;
         public int AnoPublicacao { get; set; }
-        public int AutorId { get; set; }
+        public int IdAutor { get; set; }
     }
 }
 // classe livro (entidade)

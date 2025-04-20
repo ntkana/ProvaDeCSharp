@@ -20,7 +20,7 @@ namespace ProvaC_.DAO
                 cmd.Parameters.AddWithValue("@TituloLivro", livro.Titulo);
                 cmd.Parameters.AddWithValue("@GêneroLivro", livro.Genero);
                 cmd.Parameters.AddWithValue("@AnoPublicacaoLivro", livro.AnoPublicacao);
-                cmd.Parameters.AddWithValue("@IdAutor", livro.AutorId);
+                cmd.Parameters.AddWithValue("@IdAutor", livro.IdAutor);
 
                 connection.Open();
                 cmd.ExecuteNonQuery();
@@ -46,7 +46,7 @@ namespace ProvaC_.DAO
                         Titulo = reader["TituloLivro"].ToString(),
                         Genero = reader["GêneroLivro"].ToString(),
                         AnoPublicacao = Convert.ToInt32(reader["AnoPublicacaoLivro"]),
-                        AutorId = Convert.ToInt32(reader["IdAutor"])
+                        IdAutor = Convert.ToInt32(reader["IdAutor"])
                     });
                 }
             }
@@ -59,14 +59,14 @@ namespace ProvaC_.DAO
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 string query = @"UPDATE Livro 
-                                 SET Titulo = @TituloLivro, Genero = @GêneroLivro, AnoPublicacao = @AnoPublicacaoLivro, IdAutor = @IdAutor
-                                 WHERE Id = @Id";
+                                 SET TituloLivro = @TituloLivro, GêneroLivro = @GêneroLivro, AnoPublicacaoLivro = @AnoPublicacaoLivro, IdAutor = @IdAutor
+                                 WHERE IdLivro = @IdLivro";
                 SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@Titulo", livro.Titulo);
-                cmd.Parameters.AddWithValue("@Genero", livro.Genero);
-                cmd.Parameters.AddWithValue("@AnoPublicacao", livro.AnoPublicacao);
-                cmd.Parameters.AddWithValue("@AutorId", livro.AutorId);
-                cmd.Parameters.AddWithValue("@Id", livro.Id);
+                cmd.Parameters.AddWithValue("@TituloLivro", livro.Titulo);
+                cmd.Parameters.AddWithValue("@GêneroLivro", livro.Genero);
+                cmd.Parameters.AddWithValue("@AnoPublicacaoLivro", livro.AnoPublicacao);
+                cmd.Parameters.AddWithValue("@IdAutor", livro.IdAutor);
+                cmd.Parameters.AddWithValue("@IdLivro", livro.Id);
 
                 connection.Open();
                 cmd.ExecuteNonQuery();
@@ -77,7 +77,7 @@ namespace ProvaC_.DAO
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                string query = "DELETE FROM Livro WHERE Id = @Id";
+                string query = "DELETE FROM Livro WHERE IdLivro = @Id";
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@Id", id);
 

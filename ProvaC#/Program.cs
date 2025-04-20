@@ -101,7 +101,7 @@ void InserirLivro(LivroService objLivro)
     Console.Write("Id do Autor: ");
     int idAutor = int.Parse(Console.ReadLine());
 
-    objLivro.InserirLivro(new Livro { Titulo = titulo, Genero = genero, AnoPublicacao = anoPublicacao, AutorId = idAutor });
+    objLivro.InserirLivro(new Livro { Titulo = titulo, Genero = genero, AnoPublicacao = anoPublicacao, IdAutor = idAutor });
 
 }
 void ListarLivros(LivroService objLivro)
@@ -124,6 +124,8 @@ void EditarLivro(LivroService objLivro)
     int anoPublicacao = int.Parse(Console.ReadLine());
     Console.Write("Id do Autor: ");
     int idAutor = int.Parse(Console.ReadLine());
+
+    objLivro.EditarLivro(new Livro { Id = id, Titulo = titulo, Genero = genero, AnoPublicacao = anoPublicacao, IdAutor = idAutor });
 }
 void RemoverLivro(LivroService objLivro)
 {
