@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProvaC_.Models
+﻿namespace ProvaC_.Models
 {
-    internal class Livro
+    public class Livro
     {
+        public int Id { get; set; }
+        public string Titulo { get; set; } = string.Empty;
+        public string Genero { get; set; } = string.Empty;
+        public int AnoPublicacao { get; set; }
+        public int AutorId { get; set; }
     }
 }
 // classe livro (entidade)
+// concluído

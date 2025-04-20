@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProvaC_.Models;
 
 namespace ProvaC_.Interfaces
 {
-    internal class ILivroService
+    public interface ILivroService
     {
+        void InserirLivro(Livro livro);
+        List<Livro> ListarLivros();
+        void EditarLivro(Livro livro);
+        void RemoverLivro(int id);
     }
 }
+
+// concluído, só falta arrumar os errinhos
